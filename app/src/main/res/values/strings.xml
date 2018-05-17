@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PasswordEncryption</string>
+    <string name="login_dialog_title">Login</string>
+    <string name="dialog_login_accept_btn">Accept</string>
+    <string name="login_name">Name:</string>
+    <string name="login_pass">Password</string>
+</resources>
