@@ -1,4 +1,4 @@
-package pl.kamilbieg.passwordencryption;
+package pl.kamilbieg.passwordencryption.Dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,6 +6,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+
+import pl.kamilbieg.passwordencryption.R;
+import pl.kamilbieg.passwordencryption.SqlHelper;
 
 public class LoginDialog extends DialogFragment {
 

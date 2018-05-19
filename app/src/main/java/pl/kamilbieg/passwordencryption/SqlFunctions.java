@@ -11,10 +11,10 @@ public class SqlFunctions {
         this.mDatabase = database;
     }
 
-    public void addToDatabase(String name, String password){
+    public void addUserToDatabase(User user){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SqlStructure.COULMN_USER_NAME, name);
-        contentValues.put(SqlStructure.COLUMN_USER_PASS, password);
+        contentValues.put(SqlStructure.COULMN_USER_NAME, user.getName());
+        contentValues.put(SqlStructure.COLUMN_USER_PASS, user.getPassword());
         mDatabase.insert(SqlStructure.TABLE_NAME, null, contentValues);
     }
 }
