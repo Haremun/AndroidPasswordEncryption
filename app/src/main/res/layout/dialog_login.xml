@@ -12,10 +12,11 @@
         android:textStyle="bold"
         android:text="@string/login_name" />
     <EditText
+        android:id="@+id/editLoginName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/login_name_hint"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:ems="8"/>
     <TextView
         android:layout_width="wrap_content"
@@ -23,10 +24,11 @@
         android:textStyle="bold"
         android:text="@string/login_pass"/>
     <EditText
+        android:id="@+id/editLoginPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/login_pass_hint"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:ems="8"/>
 
 

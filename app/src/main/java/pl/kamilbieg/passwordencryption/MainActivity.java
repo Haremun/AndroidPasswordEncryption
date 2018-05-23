@@ -1,18 +1,20 @@
 package pl.kamilbieg.passwordencryption;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.Toast;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.kamilbieg.passwordencryption.Dialogs.LoginDialog;
-import pl.kamilbieg.passwordencryption.Dialogs.RegisterDialog;
+import pl.kamilbieg.passwordencryption.Fragments.ProfileFragment;
+import pl.kamilbieg.passwordencryption.Fragments.RegisterFragment;
+import pl.kamilbieg.passwordencryption.Listeners.DialogResultListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements DialogResultListener {
 
 
     @Override
@@ -34,5 +36,21 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(){
         DialogFragment loginDialog = new LoginDialog();
         loginDialog.show(getFragmentManager(), "LoginDialog");
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onDialogResult(User user) {
+        ProfileFragment profileFragment = new ProfileFragment();
+        profileFragment.setUser(user);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, profileFragment);
+        transaction.commit();
+
     }
 }

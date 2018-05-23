@@ -1,4 +1,4 @@
-package pl.kamilbieg.passwordencryption;
+package pl.kamilbieg.passwordencryption.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,7 +16,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         createTable(db, SqlStructure.TABLE_NAME,
-                SqlStructure.COULMN_USER_NAME + " text ",
+                SqlStructure.COLUMN_USER_NAME + " text not null unique",
                 SqlStructure.COLUMN_USER_PASS + " text ");
 
     }

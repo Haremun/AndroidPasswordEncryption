@@ -1,7 +1,8 @@
-package pl.kamilbieg.passwordencryption;
+package pl.kamilbieg.passwordencryption.Fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,10 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pl.kamilbieg.passwordencryption.Database.SqlFunctions;
+import pl.kamilbieg.passwordencryption.Database.SqlHelper;
+import pl.kamilbieg.passwordencryption.R;
+import pl.kamilbieg.passwordencryption.User;
 
 
 /**
@@ -31,7 +36,7 @@ public class RegisterFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
@@ -47,12 +52,13 @@ public class RegisterFragment extends Fragment {
             Toast.makeText(getContext(), "Password is too short!", Toast.LENGTH_SHORT).show();
         else {
             User user = User.builder()
-                    .name(editName.toString())
-                    .password(editPassword.toString())
+                    .name(editName.getText().toString())
+                    .password(editPassword.getText().toString())
                     .build();
             SqlHelper sqlHelper = new SqlHelper(getContext());
             SqlFunctions sqlFunctions = new SqlFunctions(sqlHelper.getWritableDatabase());
             sqlFunctions.addUserToDatabase(user);
+            Toast.makeText(getContext(), "Profile created!", Toast.LENGTH_SHORT).show();
         }
 
     }
